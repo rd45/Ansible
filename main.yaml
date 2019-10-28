@@ -5,8 +5,6 @@
     v_var_file:     '/home/opc/Terraform/terraform.tfvars'
 
   tasks:
-    - include_tasks: ping/ping.yaml
-
     - include_tasks: terraform/create-vcn.yaml
       vars:
         v_varfile:  '{{ v_var_file }}'
