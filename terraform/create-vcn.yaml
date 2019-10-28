@@ -1,0 +1,8 @@
+- terraform:
+    project_path: '/home/opc/terraform-provider-oci/examples/networking/vcn'
+    variables_file: '{{ v_varfile }}'
+    state: present
+  register: v_result
+
+- debug:
+    msg: "{{ v_result }}"
