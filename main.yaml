@@ -1,5 +1,5 @@
 - name: test
-  hosts: localhost
+  hosts: all
 
   vars:
     v_var_file:     '/home/opc/Terraform/terraform.tfvars'
