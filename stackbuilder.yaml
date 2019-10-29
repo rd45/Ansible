@@ -19,7 +19,7 @@
     - name: create directory
       file:
         path:  '{{ v_project_dir }}'
-        state: directory
+        state:  directory
         
     # copy the .tf file for the stack into the project directory
     - name: copy the .tf file
