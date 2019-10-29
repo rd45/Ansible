@@ -1,1 +1,22 @@
+- name: build a given stack for a given customer
+  hosts: all
 
+  vars:
+    v_customer_id:   customer-1
+    v_stack_id:      stack-1
+    v_build_id:      build-c1-s1-b001
+    v_project_dir:   /home/opc/builds/'{{ v_build_id }}'
+    v_tf_var_file:   /home/opc/Terraform/terraform.tfvars
+
+  tasks:
+    # clone a git repo containing the latest version of the stack, as a .tf file
+    
+    # create a new project directory, named after the current build operation ID (passed as a parameter)
+    - name: create directory
+      file:
+        path:  '{{ v_project_dir }}'
+        state: directory
+        
+    # copy the .tf file for the stack into the project directory
+    
+    # build it, with the terraform module
