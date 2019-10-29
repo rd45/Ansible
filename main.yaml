@@ -9,6 +9,6 @@
       vars:
         v_varfile:  '{{ v_var_file }}'
 
-    - include_tasks: terraform/destroy-vcn.yaml
-      vars:
-        v_varfile:  '{{ v_var_file }}'
+#    - include_tasks: terraform/destroy-vcn.yaml
+#      vars:
+#        v_varfile:  '{{ v_var_file }}'
