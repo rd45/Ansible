@@ -5,7 +5,7 @@
     v_customer_id:   customer-1
     v_stack_id:      stack-1
     v_build_id:      build-c1-s1-b001
-    v_project_dir:   /home/opc/builds/'{{ v_build_id }}'
+    v_project_dir:   /home/opc/builds/{{ v_build_id }}
     v_tf_var_file:   /home/opc/Terraform/terraform.tfvars
 
   tasks:
