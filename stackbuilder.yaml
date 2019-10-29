@@ -4,12 +4,16 @@
   vars:
     v_customer_id:   customer-1
     v_stack_id:      stack-1
-    v_build_id:      build-c1-s1-b001
-    v_project_dir:   /home/opc/builds/{{ v_build_id }}
+    v_build_id:      build-001
+    v_project_dir:   /home/opc/my-builds/{{ v_customer_id }}/{{ v_stack_id }}/{{ v_build_id }}
     v_tf_var_file:   /home/opc/Terraform/terraform.tfvars
 
   tasks:
-    # clone a git repo containing the latest version of the stack, as a .tf file
+    # check out the latest version of the stack, as a .tf file
+    - name: git checkout
+      git: 
+        repo:  https://github.com/rd45/my-stacks.git
+        dest:  /home/opc/my-stacks
     
     # create a new project directory, named after the current build operation ID (passed as a parameter)
     - name: create directory
