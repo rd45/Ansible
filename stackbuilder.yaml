@@ -21,7 +21,7 @@
         path:  '{{ v_project_dir }}'
         state: directory
         
-    # copy the .tf file(s) for the stack into the project directory
+    # copy the .tf file for the stack into the project directory
     - name: copy the .tf file(s)
       copy: 
         src:        /home/opc/my-stacks/{{ v_customer_id }}/stacks/{{ v_stack_id}}/main.tf
@@ -29,3 +29,15 @@
         remote_src: true
    
     # build it, with the terraform module
+    - name: build whatever is in the .tf file
+      terraform: 
+        project_path:   '{{ v_project_dir }}'
+        variables_file: '{{ v_tf_var_file }}'
+        force_init:      yes
+        state:           present
+      register:          v_result
+      
+      # show output
+      - name: output from terraform
+        debug:
+          msg: '{{ v_result }}'
