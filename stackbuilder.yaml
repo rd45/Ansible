@@ -37,7 +37,7 @@
         state:           present
       register:          v_result
       
-      # show output
-      - name: output from terraform
-        debug:
-          msg: '{{ v_result }}'
+    # show output
+    - name: output from terraform
+      debug:
+        msg: '{{ v_result }}'
