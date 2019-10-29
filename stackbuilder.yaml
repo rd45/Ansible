@@ -5,15 +5,18 @@
     v_customer_id:   customer-1
     v_stack_id:      stack-1
     v_build_id:      build-001
-    v_project_dir:   /home/opc/my-builds/{{ v_customer_id }}/{{ v_stack_id }}/{{ v_build_id }}
-    v_tf_var_file:   /home/opc/Terraform/terraform.tfvars
+    
+    v_base_dir:      /home/opc
+    v_project_dir:   {{ v_base_dir }}/my-builds/{{ v_customer_id }}/{{ v_stack_id }}/{{ v_build_id }}
+    v_repo:          https://github.com/rd45/my-stacks.git
+    v_tf_var_file:   {{ v_base_dir }}/Terraform/terraform.tfvars
 
   tasks:
     # check out the latest version of the stack, as a .tf file
     - name: git checkout
       git: 
-        repo:  https://github.com/rd45/my-stacks.git
-        dest:  /home/opc/my-stacks
+        repo: '{{ v_repo }}'
+        dest:  {{ v_base_dir }}/my-stacks
     
     # create a new project directory, named after the current build operation ID (passed as a parameter)
     - name: create directory
@@ -24,7 +27,7 @@
     # copy the .tf file for the stack into the project directory
     - name: copy the .tf file
       copy: 
-        src:        /home/opc/my-stacks/{{ v_customer_id }}/stacks/{{ v_stack_id}}/main.tf
+        src:        {{ v_base_dir }}/my-stacks/{{ v_customer_id }}/stacks/{{ v_stack_id}}/main.tf
         dest:      '{{ v_project_dir }}'
         remote_src: true
    
