@@ -22,7 +22,7 @@
         state: directory
         
     # copy the .tf file for the stack into the project directory
-    - name: copy the .tf file(s)
+    - name: copy the .tf file
       copy: 
         src:        /home/opc/my-stacks/{{ v_customer_id }}/stacks/{{ v_stack_id}}/main.tf
         dest:      '{{ v_project_dir }}'
