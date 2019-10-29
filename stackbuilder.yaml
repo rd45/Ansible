@@ -16,7 +16,7 @@
     - name: git checkout
       git: 
         repo:           '{{ v_repo }}'
-        dest:           '{{ v_base_dir }}/my-stacks
+        dest:           '{{ v_base_dir }}'/my-stacks
     
     # create a new project directory, named after the current build operation ID (passed as a parameter)
     - name: create directory
