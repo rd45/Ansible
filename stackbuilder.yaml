@@ -2,7 +2,7 @@
   hosts: all
 
   vars:
-    v_customer_id:       customer-1
+    v_customer_id:      '{{ p_customer-id }}'
     v_stack_id:          stack-1
     v_build_id:          build-001
     
