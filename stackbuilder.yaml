@@ -3,15 +3,15 @@
 
   vars:
     v_customer_id:      '{{ p_customer_id }}'
-    v_stack_id:          stack-1
-    v_build_id:          build-001
+    v_stack_id:         '{{ p_stack_id }}'
+    v_build_id:         '{{ p_build_id }}'
     
     v_project_dir:       /home/opc/my-builds/{{ v_customer_id }}/{{ v_stack_id }}/{{ v_build_id }}
     v_repo:              https://github.com/rd45/my-stacks.git
     v_tf_var_file:       /home/opc/Terraform/terraform.tfvars
 
   tasks:
-    # check out the latest version of the stack, as a .tf file
+    # get the .tf files from the git repo
     - name: git checkout
       git: 
         repo:           '{{ v_repo }}'
