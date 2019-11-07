@@ -23,7 +23,7 @@
         path:           '{{ v_project_dir }}'
         state:           directory
         
-    # copy the .tf file for the stack into the project directory
+    # copy the .tf files for the stack into the project directory
     - name: copy the .tf file
       copy: 
         src:            '{{ item }}'
@@ -35,7 +35,7 @@
         - /home/opc/my-stacks/{{ v_customer_id }}/stacks/{{ v_stack_id }}/*.tf
    
     # build it, with the terraform module
-    - name: build whatever is in the .tf file 
+    - name: build whatever is in the .tf files 
       terraform: 
         project_path:   '{{ v_project_dir }}'
         variables_file: '{{ v_tf_var_file }}'
