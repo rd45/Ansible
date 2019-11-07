@@ -32,7 +32,7 @@
         mode:            640
         remote_src:      true
       with_fileglob:
-        - /home/opc/my-stacks/{{ v_customer_id }}/stacks/{{ v_stack_id }}/*.tf
+        - /home/opc/my-stacks/{{ v_customer_id }}/stacks/{{ v_stack_id }}/*
    
     # build it, with the terraform module
     - name: build whatever is in the .tf files 
