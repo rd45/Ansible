@@ -24,15 +24,11 @@
         state:           directory
         
     # copy the .tf files for the stack into the project directory
-    - name: copy the .tf file
+    - name: copy the .tf files
       copy: 
-        src:            '{{ item }}'
+        src:             /home/opc/my-stacks/{{ v_customer_id }}/stacks/{{ v_stack_id }}/
         dest:           '{{ v_project_dir }}'
-        owner:           opc
-        mode:            640
         remote_src:      true
-      with_fileglob:
-        - /home/opc/my-stacks/{{ v_customer_id }}/stacks/{{ v_stack_id }}/*
    
     # build it, with the terraform module
     - name: build whatever is in the .tf files 
